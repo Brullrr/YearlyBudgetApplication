@@ -1,0 +1,103 @@
+
+.FirstTimeMonthModal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.Backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.529);
+    cursor: pointer;
+}
+
+.Modal {
+    position: absolute;
+    width: 50%;
+    height: 90%;
+    left: 25%;
+    top: 5%;
+    background-color: #CFFFF6;
+    border: none;
+    box-sizing: border-box;
+    border-radius: calc(5vh + 5vw);
+    text-align: center;
+    box-shadow:  0px 0px 10px 10px #0b2f3f;
+    display: grid;
+    grid-template-columns: auto;
+    animation: fall 1.5s linear;
+
+} 
+
+.InputsHolder {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 50% 50%;
+
+}
+
+
+
+.InputsHolder p {
+    margin: 0px 0px 0px 15%;
+    padding: 0;
+    width: 70%;
+    text-align: center;
+    font-size: calc(.8vh + .8vw);
+    height: calc(2vh );
+}
+
+.InputsHolder p:nth-child(1) {
+    margin: 1% 0px 0px 15%;
+    grid-column: 1/3;
+}
+.InputsHolder input {
+    width: 50%;
+    height: calc(2vh );
+    justify-self: center;
+    text-align: center;
+    font-size: calc(.7vh + .7vw);
+    border: none;
+    background-color: #FFF3B9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 2px 2px #0b2f3f;
+    color: #0b2f3f;
+    margin-top: 2px;
+}
+
+.InputsHolderInvalid input {
+    border: calc(.2vh + .2vw) solid #ec0909;
+}
+
+.Submit {
+    width: 50%;
+    height: calc(2vh + 2vw);
+    justify-self: center;
+    font-size: calc(1vh + 1vw);
+    border: none;
+    background-color: #FFF3B9;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 2px #0b2f3f;
+    color: #0b2f3f;
+    margin-top: 3px;
+    grid-column: 1/3;
+} 
+
+@keyframes fall {
+    0% {
+        top: 0%;
+    }
+    
+    50% {
+        top: 10%
+    }
+
+    100% {
+        top: 5%;
+    }
+    
+}

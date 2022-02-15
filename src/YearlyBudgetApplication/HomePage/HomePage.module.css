@@ -1,0 +1,89 @@
+.HomePage {
+    position: absolute;
+    background: linear-gradient(to right, #87CDF6, #CFFFF6);
+    height: 100%;
+    width: 100%;
+}
+
+.YearsHolder {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    display: grid; 
+    grid-template-columns: auto;
+    text-align: center;
+    left: 25%;
+    top: 25%;
+    overflow: auto;
+}
+
+.YearsHolder button:nth-child(1) {
+    margin-top: 2%;
+}
+
+.YearButton {
+    
+    background-color: #FFF3B9;
+    height: calc(2vh + 2vw);
+    width: calc(16vh + 16vw);
+    justify-self: center;
+    border: 0px solid #115470;
+    border-radius: calc(.5vh + .5vw);
+    font-size: calc(1vh + 1vw);
+    color: #0b2f3f;
+    cursor: pointer;
+    transition: all ease-in-out 1s;
+    box-shadow: 0px 0px 2px 2px #0b2f3f;
+}
+
+.YearButton p {
+    margin: 0;
+    padding: 0;
+}
+
+.YearButton:hover {
+    transform: scale(1.04);
+}
+
+.YearButton:hover p {
+    animation: textDance 1s linear;
+}
+.Link {
+    height: calc(2vh + 2vw);
+    width: calc(16vh + 16vw);
+    justify-self: center;
+}
+.AddNewYearButton {
+    background-color: #FFF3B9;
+    height: calc(2vh + 2vw);
+    width: calc(16vh + 16vw);
+    justify-self: center;
+    border: 0px solid #115470;
+    border-radius: calc(.5vh + .5vw);
+    font-size: calc(1vh + 1vw);
+    color: #0b2f3f;
+    cursor: pointer;
+    transition: all ease-in-out 1s;
+    box-shadow: 0px 0px 2px 2px #0b2f3f;
+}
+
+.AddNewYearButton p {
+    margin: 0;
+    padding: 0;
+}
+
+.AddNewYearButton:hover {
+    transform: scale(1.04);
+}
+
+.AddNewYearButton:hover p {
+    animation: textDance 1s linear;
+}
+
+@keyframes textDance {
+    0% {transform: scale(1, 1);}
+    20% {transform: scale(1, .5);}
+    40% {transform: scale(1, 1);}
+    60% {transform: scale(1, .5);}
+    80% {transform: scale(1, 1);}
+}
