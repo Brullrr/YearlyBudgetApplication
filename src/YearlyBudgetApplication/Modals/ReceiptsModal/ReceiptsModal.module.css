@@ -1,0 +1,83 @@
+
+
+.ReceiptsModal {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+}
+
+.Backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.529);
+    cursor: pointer;
+}
+
+.ReceiptsHolder {
+    position: absolute;
+    width: 50vw;
+    height: 90%;
+    left: 25%;
+    top: 5%;
+    background-color: #CFFFF6;
+    border: none;
+    box-sizing: border-box;
+    border-radius: calc(5vh + 5vw);
+    text-align: center;
+    box-shadow:  0px 0px 10px 10px #0b2f3f;
+    display: flexbox;
+    flex-wrap: wrap;
+    animation: fall 1.5s linear;
+    overflow-y: auto;
+    overflow-x: hidden;
+} 
+
+.ReceiptsHolder .Receipt:nth-child(1) {
+    margin: 9vh 0px 0px 0px;
+}
+
+
+.Receipt {
+    width: 100%; 
+    height: 5vh;
+    display: grid;
+    grid-template-columns: 7vw 10vw 13vw 20vw;
+    font-size: calc(1vh + 1vw);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+    
+}
+.Receipt:hover {
+    border: 1px solid red;
+    background: linear-gradient(to right, lightsalmon, salmon);
+    cursor: pointer;
+}
+.Receipt:nth-child(1):hover {
+    border: none;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background: none;
+    cursor: default;
+}
+
+.Receipt p {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    justify-self: center;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    width: 100%;
+    height: 100%;
+    line-height: 4vh;
+}
+
+.Receipt p:nth-child(1) {
+    border-left: none;
+}
+.Receipt p:nth-child(4) {
+    border-right: none;
+}

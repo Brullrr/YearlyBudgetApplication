@@ -183,7 +183,7 @@ const FirstTimeMonthModal = (props) => {
                 amount: schoolLunch
             },
             {
-                expense: 'Restaurant',
+                expense: 'Restaurants',
                 amount: restaurant
             },
             {

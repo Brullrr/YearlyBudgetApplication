@@ -4,13 +4,14 @@ import homePageStateReducer from '../store/homePageSlice';
 import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import monthlyReducer from '../store/monthlySlice';
-
+import receiptsReducer from '../store/receiptsSlice';
 
 
         const reducers = combineReducers({
             stateSlice: stateReducer,
             homePageStateSlice: homePageStateReducer,
             monthlySlice: monthlyReducer,
+            receiptsSlice: receiptsReducer
         });
 
         
