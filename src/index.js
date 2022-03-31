@@ -5,14 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store/index';
+import {store, persistor} from './store/index';
+import { PersistGate} from 'redux-persist/es/integration/react';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-    <App />
-    </BrowserRouter>
+      <PersistGate loading={<div>loading...</div>} persistor={persistor}>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
     
   </React.StrictMode>,

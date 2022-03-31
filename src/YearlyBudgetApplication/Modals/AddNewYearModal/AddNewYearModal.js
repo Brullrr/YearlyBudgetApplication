@@ -34,12 +34,9 @@ const AddNewYearModal = (props) => {
         let itsValid = true
         if(yearInput*1 > 2100) {
             itsValid = false
-            setInputValue(2100)
         }
         if(yearInput*1 < 2000) {
             itsValid = false
-    
-            setInputValue(2000)
         }
 
         yearsArray.forEach(element => {
@@ -57,6 +54,7 @@ const AddNewYearModal = (props) => {
             dispatch(homePageStateSliceActions.addYear(inputValue));
             toggleModal();
             props.valid();
+            
         } else {
             props.invalid();
         }

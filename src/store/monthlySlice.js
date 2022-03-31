@@ -16,6 +16,18 @@ const monthlySlice = createSlice({
                     expectedExpenses: action.payload.expectedExpenses
                 }
             )
+        },
+        updateIncome(state, action) {
+            
+            state.forEach((e, index) => {
+                let whatMonth = e.year + e.month;
+                let newIncome = action.payload.income;
+                newIncome = newIncome || 0;
+                
+                if(whatMonth === action.payload.year + action.payload.month) {
+                    state[index].income = newIncome
+                }
+            })
         }
     }
 });

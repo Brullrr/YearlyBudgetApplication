@@ -5,6 +5,9 @@ import FirstTimeMonthModal from "../Modals/FirstTimeMonthModal/FirstTimeMonthMod
 import classes from './MonthlyPage.module.css';
 import { receiptsSliceActions } from "../../store/receiptsSlice";
 import ReceiptsModal from "../Modals/ReceiptsModal/ReceiptsModal";
+import 'chart.js/auto';
+import { Chart } from 'react-chartjs-2';
+import { Link } from 'react-router-dom';
 
 
 
@@ -13,7 +16,6 @@ const MonthlyPage = (props) => {
 
     //receipt calcualtions
     let receiptsArray = useSelector(state => state.receiptsSlice)
-    
 
 
     let monthsStateArray = useSelector(state => state.monthlySlice)
@@ -269,13 +271,25 @@ const MonthlyPage = (props) => {
 
     let monthlySavings = income*1 - totalPaid*1;
 
+    // if user messes up  original income input 
+    const changeIncomeHandler = (e) => {
+        let inputteditem = parseInt(e.target.value)*1;
+        dispatch(monthlySliceActions.updateIncome({year: props.year,
+        month: props.month,
+        income: inputteditem}))
+    }
+
     return (
 
         isItTheFirstTime ? <FirstTimeMonthModal year={props.year} month={props.month}/> : 
         (
             <div className={classes.MonthlyPage}>
                 {isReceiptsModalOpen ? <ReceiptsModal minDate={minDate} maxDate={maxDate} toggleReceiptsModal={toggleReceiptsModal} year={props.year} month={monthNumber} /> : null}
-                <div className={classes.MonthBanner}>{props.month}</div>
+                <div className={classes.MonthBanner}>
+                <Link to={'/' + props.year}><button>Home</button></Link>
+                    <p>{props.month}</p>
+                    <div></div>
+                    </div>
                 <div className={classes.ExpensesCalculated}>
                             <div className={classes.Expense}>
                                 <div>Expense</div>
@@ -385,11 +399,105 @@ const MonthlyPage = (props) => {
                     
                 </div>
                 <div className={classes.GraphHolder}>
-                    <div className={classes.Graph}></div>
+                        <div className={classes.Graph}>
+                            <Chart type="pie" width={'55vh'} height={'55vh'} options={{maintainAspectRatio: false}} data = {{
+                        labels: [
+                            "IncomeTax",
+                            "Rent",
+                            "HealthInsurance",
+                            "Pension",
+                            "ResidenceTax",
+                            "CarInsurance",
+                            "CarFuel",
+                            "Train",
+                            "Bus",
+                            "Gas",
+                            "Electricity",
+                            "Water",
+                            "Internet",
+                            "Phone",
+                            "Groceries",
+                            "SchoolLunch",
+                            "Restaurants",
+                            "Alcohol",
+                            "Gifts",
+                            "Gym",
+                            "Miscellaneous",
+                            "Savings"
+                        ],
+                        datasets: [
+                            {
+                                label: 'idk',
+                                data: [
+                                    (Math.floor((totalIncomeTaxPaid/income)*100)),
+                                    (Math.floor((totalRentPaid/income)*100)),
+                                    (Math.floor((totalHealthInsurancePaid/income)*100)),
+                                    (Math.floor((totalPensionPaid/income)*100)),
+                                    (Math.floor((totalResidenceTaxPaid/income)*100)),
+
+                                    (Math.floor((totalCarInsurancePaid/income)*100)),
+                                    (Math.floor((totalCarFuelPaid/income)*100)),
+                                    (Math.floor((totalTrainPaid/income)*100)),
+                                    (Math.floor((totalBusPaid/income)*100)),
+
+                                    (Math.floor((totalGasPaid/income)*100)),
+                                    (Math.floor((totalElectricityPaid/income)*100)),
+                                    (Math.floor((totalWaterPaid/income)*100)),
+                                    (Math.floor((totalInternetPaid/income)*100)),
+                                    (Math.floor((totalPhonePaid/income)*100)),
+                                    
+                                    (Math.floor((totalGroceriesPaid/income)*100)),
+                                    (Math.floor((totalSchoolLunchPaid/income)*100)),
+                                    (Math.floor((totalRestaurantsPaid/income)*100)),
+                                    
+                                    (Math.floor((totalAlcoholPaid/income)*100)),
+                                    (Math.floor((totalGiftsPaid/income)*100)),
+                                    (Math.floor((totalGymPaid/income)*100)),
+                                    (Math.floor((totalMiscellaneousPaid/income)*100)),
+
+                                    (Math.floor((monthlySavings/income)*100))
+                                ],
+                                backgroundColor :[
+                                    '#5b0f13',
+                                    '#981a1f',
+                                    '#d5242c',
+                                    '#e35d63',
+                                    '#ed9a9e',
+
+                                    '#553015',
+                                    '#aa612b',
+                                    '#d1854b',
+                                    '#e0ab84',
+
+                                    '#1a5035',
+                                    '#2c8559',
+                                    '#3ebb7c',
+                                    '#71cfa0',
+                                    '#a7e1c4',
+
+                                    '#9b9b17',
+                                    '#d9d920',
+                                    '#e6e65a',
+
+                                    '#533b51',
+                                    '#7c5979',
+                                    '#a17c9d',
+                                    '#bea7bc',
+
+                                    'lightblue'
+                                ],
+                                hoverOffset: 4
+                            }
+                        ],
+                            }} />
+
+                            
+                        </div>
                 </div>
+                
                 <div className={classes.IncomeSavings}>
-                    <div className={classes.IncomeSavingsIncome} ><p>Income: </p> <p>&#165;{income}</p></div>
-                    <div className={classes.IncomeSavingsSavings}><p>Savings: </p> <p>&#165;{monthlySavings}</p></div>
+                    <div className={classes.IncomeSavingsIncome} ><p >Income: </p> <input onChange={changeIncomeHandler} placeholder={'¥' + income.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}  /> </div>
+                    <div className={classes.IncomeSavingsSavings}><p>Savings: </p> <p>&#165;{monthlySavings.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p></div>
                 </div>
                 
                 <div className={classes.OpenReceiptsButton}>
