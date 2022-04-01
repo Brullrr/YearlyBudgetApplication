@@ -2,7 +2,7 @@ import classes from './HomePage.module.css';
 import AddNewYearModal from '../Modals/AddNewYearModal/AddNewYearModal';
 import { useSelector, useDispatch } from "react-redux";
 import { homePageStateSliceActions } from '../../store/homePageSlice';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useState } from 'react';
 
 const HomePage = () => {

@@ -16,7 +16,7 @@ const YearlyBudgetApplication = () => {
     monthsArray.forEach((ele) => {
         yearsArray.forEach(e => {
                         monthsRoutes.push(
-                            <Route key={e.payload + 'Route' + ele} path={'#/' + e.payload + ele } element={ <MonthlyPage year={e.payload} month={ele} /> }></Route>
+                            <Route key={e.payload + 'Route' + ele} path={'/' + e.payload + ele } element={ <MonthlyPage year={e.payload} month={ele} /> }></Route>
                         )
         })  
     })
@@ -24,11 +24,11 @@ const YearlyBudgetApplication = () => {
     return (
         <div>
                 <Routes>
-                    <Route path='#/' element={ <HomePage /> } />
-                    <Route path="#/testComp"  element={ <TestComp />} />
+                    <Route path='/' element={ <HomePage /> } />
+                    <Route path="/testComp"  element={ <TestComp />} />
                     {yearsArray.map((e) => {
                         return (
-                            <Route key={e.payload + 'Route'} path={'#/' + e.payload} element={ <YearlyPage year={e.payload} /> }></Route>
+                            <Route key={e.payload + 'Route'} path={'/' + e.payload} element={ <YearlyPage year={e.payload} /> }></Route>
                         
                             )
                     })}
