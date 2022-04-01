@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import {  Route, Routes } from 'react-router-dom';
 import TestComp from '../TestComp';
 import HomePage from './HomePage/HomePage';
 import YearlyPage from './YearlyPage/YearlyPage';
@@ -16,20 +16,19 @@ const YearlyBudgetApplication = () => {
     monthsArray.forEach((ele) => {
         yearsArray.forEach(e => {
                         monthsRoutes.push(
-                            <Route key={e.payload + 'Route' + ele} path={'/' + e.payload + ele } element={ <MonthlyPage year={e.payload} month={ele} /> }></Route>
+                            <Route key={e.payload + 'Route' + ele} path={'#/' + e.payload + ele } element={ <MonthlyPage year={e.payload} month={ele} /> }></Route>
                         )
         })  
     })
   
     return (
         <div>
-            <HashRouter>
                 <Routes>
-                    <Route path='/' element={ <HomePage /> } />
-                    <Route path="/testComp"  element={ <TestComp />} />
+                    <Route path='#/' element={ <HomePage /> } />
+                    <Route path="#/testComp"  element={ <TestComp />} />
                     {yearsArray.map((e) => {
                         return (
-                            <Route key={e.payload + 'Route'} path={'/' + e.payload} element={ <YearlyPage year={e.payload} /> }></Route>
+                            <Route key={e.payload + 'Route'} path={'#/' + e.payload} element={ <YearlyPage year={e.payload} /> }></Route>
                         
                             )
                     })}
@@ -39,7 +38,6 @@ const YearlyBudgetApplication = () => {
                 }  
 
                 </Routes>
-            </HashRouter>
         </div>
    )
 }
