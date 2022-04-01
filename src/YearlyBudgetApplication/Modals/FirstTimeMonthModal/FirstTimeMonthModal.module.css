@@ -101,3 +101,12 @@
     }
     
 }
+
+@media (max-width: 570px) {
+    .Modal {
+        width: 90%;
+        height: 90%;
+        left: 5%;
+    }
+
+ }

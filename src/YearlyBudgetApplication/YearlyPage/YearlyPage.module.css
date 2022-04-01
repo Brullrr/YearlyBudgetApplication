@@ -112,3 +112,8 @@
 
 
 
+@media (max-width: 600px) {
+    .MonthsHolder a {
+        width: 100%;
+    }
+}

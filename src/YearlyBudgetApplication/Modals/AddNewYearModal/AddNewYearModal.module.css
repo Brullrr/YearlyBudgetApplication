@@ -91,3 +91,9 @@
     }
     
 }
+
+@media (max-width: 600px) {
+    .Submit {
+        height: calc(3vh + 3vw);
+    } 
+}

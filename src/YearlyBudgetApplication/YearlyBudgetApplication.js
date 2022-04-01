@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import TestComp from '../TestComp';
 import HomePage from './HomePage/HomePage';
 import YearlyPage from './YearlyPage/YearlyPage';
@@ -23,21 +23,23 @@ const YearlyBudgetApplication = () => {
   
     return (
         <div>
-            <Routes>
-                <Route path='/' element={ <HomePage /> } />
-                <Route path="/testComp"  element={ <TestComp />} />
-                {yearsArray.map((e) => {
-                    return (
-                        <Route key={e.payload + 'Route'} path={'/' + e.payload} element={ <YearlyPage year={e.payload} /> }></Route>
-                    
-                        )
-                })}
+            <HashRouter>
+                <Routes>
+                    <Route path='/' element={ <HomePage /> } />
+                    <Route path="/testComp"  element={ <TestComp />} />
+                    {yearsArray.map((e) => {
+                        return (
+                            <Route key={e.payload + 'Route'} path={'/' + e.payload} element={ <YearlyPage year={e.payload} /> }></Route>
+                        
+                            )
+                    })}
 
-              {
-                  monthsRoutes.map(e => e)
-              }  
+                {
+                    monthsRoutes.map(e => e)
+                }  
 
-            </Routes>
+                </Routes>
+            </HashRouter>
         </div>
    )
 }
