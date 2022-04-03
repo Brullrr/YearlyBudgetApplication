@@ -16,7 +16,8 @@ const ReceiptsModal = (props) => {
     });
 
     const deleteReceipt = (e, index) => {
-        let passwordReceipt = e.date + e.amount + e.category + e.comments + index;
+        let passwordReceipt = e.date + e.amount + e.category + e.comments + e.keyPass;
+        console.log('ReceiptsModal:  ' + passwordReceipt);
         dispatch(receiptsSliceActions.deleteReceipt(passwordReceipt))
     }
 

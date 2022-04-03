@@ -240,13 +240,19 @@ const MonthlyPage = (props) => {
         if(receiptDate === '') {
             allowPassToState = false;
         }
+        if(receiptDate < minDate) {
+            allowPassToState = false;
+        }
+        if(receiptDate > maxDate) {
+            allowPassToState = false;
+        }
         if(receiptAmount <= 0) {
             allowPassToState = false;
         }
         if(receiptCategory === '') {
             allowPassToState = false;
         }
-
+        let keyPass = receiptDate + receiptAmount + receiptCategory + receiptComments + Math.random()
         
         if(allowPassToState) {
             alert('Added Receipt')
@@ -254,7 +260,8 @@ const MonthlyPage = (props) => {
                 date: receiptDate,
                 amount: receiptAmount,
                 category: receiptCategory,
-                comments: receiptComments
+                comments: receiptComments,
+                keyPass: keyPass
             }))
         }
     }

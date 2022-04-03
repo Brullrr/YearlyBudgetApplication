@@ -12,12 +12,15 @@ const receiptsSlice = createSlice({
                 date: action.payload.date,
                 amount: action.payload.amount,
                 category: action.payload.category,
-                comments: action.payload.comments
+                comments: action.payload.comments,
+                keyPass: action.payload.keyPass
             })
         },
         deleteReceipt(state, action) {
             state.forEach((e, index) => {
-                let passReceipt = e.date + e.amount + e.category + e.comments + index;
+                let passReceipt = e.date + e.amount + e.category + e.comments + e.keyPass;
+                console.log('ReceiptsState:  ' + passReceipt);
+
                 if(passReceipt === action.payload) {
                     state.splice(index, 1);
                 }

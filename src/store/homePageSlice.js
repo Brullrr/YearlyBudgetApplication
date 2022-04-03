@@ -4,7 +4,7 @@ import { createSlice} from '@reduxjs/toolkit';
 const initialState = {
     isModalOpen: false,
 
-    years: [{payload: 2000}]
+    years: []
 }
 
 const homePageStateSlice = createSlice({

@@ -11,7 +11,7 @@ import { PersistGate} from 'redux-persist/es/integration/react';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter > 
+    <HashRouter> 
     <Provider store={store}>
       <PersistGate loading={<div>loading...</div>} persistor={persistor}>
         
